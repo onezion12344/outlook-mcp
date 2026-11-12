@@ -1,0 +1,13 @@
+name = "open-pixel"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+# One row per image fetch. `ip4` is a 4-byte truncated SHA-256 of the client IP,
+# never the address itself. Retention is the owner's choice; there is no auto-purge.
+[[d1_databases]]
+binding = "DB"
+database_name = "open-pixel"
+database_id = "REPLACE_WITH_D1_ID"
+
+# Required for GET /events. Set it with: wrangler secret put SYNC_TOKEN
+# The local side reads the same value from the macOS Keychain (see README).

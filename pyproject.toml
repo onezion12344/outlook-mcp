@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "outlook-web-mcp-server"
+license = "AGPL-3.0-only"
+version = "0.1.0"
+description = "Unofficial local Outlook Web MCP server using private OWA APIs without Microsoft Graph or COM"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "ma-nakaya" }]
+dependencies = [
+  "filelock>=3.20,<4",
+  "httpx>=0.28,<1",
+  "certifi>=2024.2.2",
+  "keyring>=25,<26",
+  "mcp>=1.28,<2",
+  "platformdirs>=4,<5",
+]
+
+[project.scripts]
+outlook-web-mcp = "outlook_web_mcp.cli:main"
+outlook-web-mcp-server = "outlook_web_mcp.server:main"
+
+[dependency-groups]
+dev = [
+  "mypy>=1.18,<2",
+  "pytest>=8.4,<9",
+  "pytest-asyncio>=1.2,<2",
+  "ruff>=0.14,<1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/outlook_web_mcp"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# Plan/spec docs carry intentionally indented snippets; the formatter would
+# re-indent Markdown code fences and destroy the "insert here" context.
+extend-exclude = ["docs"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["outlook_web_mcp"]

@@ -1,0 +1,13 @@
+# NOTICE
+
+This directory is a fork of [ma-nakaya/outlook-web-mcp-server](https://github.com/ma-nakaya/outlook-web-mcp-server),
+used under its MIT License (see `LICENSE`).
+
+- Upstream pin: `aa41b131a2d35495914d47b65fe0f9b178fadbe3` (main, 2026-11-01)
+- Forked on: 2026-11-06
+- Maintainer of this fork: <owner> (private fork; not affiliated with upstream)
+- Local modifications: see `FORK.md`, `PITFALLS.md` and `PITFALLS.md`
+
+Upstream's own `skills/use-outlook-web-mcp/references/tool-contract.md` cites commit
+`c78d4fd99734bd9e457240f63451e60d7ef9ed38` ("Initial public release", 2026-08-04). That
+citation is stale relative to this pin and is corrected in v0.1 Task 8.
